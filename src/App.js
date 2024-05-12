@@ -1,16 +1,35 @@
 import "./App.css";
+import Myimage from "./components/Myimage";
+import ProductCard from "./components/ProductCard";
+import Title from "./components/Title";
+import product from "./product";
 
 function App() {
+  const productCards = product.map((product) => {
+    return (
+      <ProductCard
+        name={product.name}
+        price={product.price}
+        img={product.image}
+      />
+    );
+  });
+
   return (
     <div className="App">
-      <h1>Cookies and Beyound</h1>
-      <h2>where cookies maniacs gether</h2>
-      <img
-        src="https://cdn.vox-cdn.com/thumbor/8KxsXttFkBnutKiHQs1m6o1TYrk=/0x0:3367x2989/1820x1213/filters:focal(1415x1226:1953x1764):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/72777254/leidcookies.0.jpeg"
-        alt="cookies shop"
-        width="800"
-        height="600"
-      ></img>
+      <Title />
+      <Myimage />
+      {productCards}
+      {/* <ProductCard
+        name={product[0].name}
+        price={product[0].price}
+        img={product[0].image}
+      />
+      <ProductCard
+        name={product[1].name}
+        price={product[1].price}
+        img={product[1].image}
+      /> */}
     </div>
   );
 }
